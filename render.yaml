@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: pentu
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: B2_KEY_ID
+        sync: false          # keyID de la Application Key de Backblaze
+      - key: B2_APP_KEY
+        sync: false          # applicationKey (se muestra una sola vez)
+      - key: B2_BUCKET
+        sync: false          # nombre del bucket
+      - key: B2_ENDPOINT
+        sync: false          # ej: https://s3.us-west-004.backblazeb2.com
+      - key: SUBIDAS_POR_HORA
+        value: "10"
